@@ -1,6 +1,4 @@
-package processeur.models;
-
-import javax.print.DocFlavor.STRING;
+package src;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
