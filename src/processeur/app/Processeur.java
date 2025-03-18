@@ -26,7 +26,11 @@ public class Processeur {
         Controller ctrl = new Controller();
         ServiceCPU service = new ServiceCPU();
         View view = new View();
-        setRefServiceCPU(service);
+        ctrl.setRefServiceCPU(service);
+        ctrl.setRefView(view);
+        service.setRefCtrl(ctrl);
+        view.setRefCtrl(ctrl);
+        ctrl.start();
     }
 
 }
