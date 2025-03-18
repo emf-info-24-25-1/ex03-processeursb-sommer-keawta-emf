@@ -17,25 +17,26 @@ public class ServiceCPU {
     /**
      * Constantes indiquant le nombre maximum de CPUs que peut contenir notre liste.
      */
-    // VOTRE CODE ICI...
+    public static int NBRE_CPU = 10;
 
     /**
      * Attribut contenant le tableau des CPUs.
      */
-    // VOTRE CODE ICI...
+    private CPU[] cpus = new CPU[NBRE_CPU];
 
     /**
      * Attribut contenant la référence au contrôleur de l'application MVC
      * "Processeur".
      */
-    // VOTRE CODE ICI...
+    private Controller refController;
 
     /**
      * Constructeur de la classe ServiceCPU. Les attributs de la classe ServiceCPU
      * sont initialisés.
      */
     public ServiceCPU() {
-        // VOTRE CODE ICI...
+        this.refController = null;
+        this.cpus = new CPU[NBRE_CPU];
     }
 
     /**
@@ -48,7 +49,17 @@ public class ServiceCPU {
      * @return vrai si une place libre a été trouvée dans notre liste de cpus
      */
     public boolean ajouterUnNouveau(CPU cpu) {
-        // VOTRE CODE ICI...
+        boolean ajoutReussi = false;
+        for (int i = 0; i < cpus.length; i++) {
+            if (cpus[i] == null) {
+                cpus[i] = cpu;
+                ajoutReussi = true;
+                break;
+            }
+        }
+
+        return ajoutReussi;
+
     }
 
     /**
@@ -57,7 +68,11 @@ public class ServiceCPU {
      * @return la liste des CPUs
      */
     public CPU[] obtenirLaListe() {
-        // VOTRE CODE ICI...
+        for (int i = 0; i < cpus.length; i++) {
+            System.out.println(i);
+        }
+
+        return cpus;
     }
 
     /**
@@ -67,7 +82,14 @@ public class ServiceCPU {
      * @return le nombre de CPUs contenus dans notre liste
      */
     public int nombreDeCPUDansLaListe() {
-        // VOTRE CODE ICI...
+        int nombreCPU = 0;
+        for (int i = 0; i < cpus.length; i++) {
+            if (cpus[i] != null) {
+                nombreCPU ++;
+            }
+        }
+
+        return nombreCPU;
     }
 
     /**
@@ -78,7 +100,7 @@ public class ServiceCPU {
      * @return la taille de la liste de CPU
      */
     public int tailleDeLaListe() {
-        // VOTRE CODE ICI...
+        return NBRE_CPU;
     }
 
     /**
@@ -90,7 +112,11 @@ public class ServiceCPU {
      *         limites du tableau
      */
     public CPU obtenirUnElement(int indice) {
-        // VOTRE CODE ICI...
+        if (indice >= 0 && indice < cpus.length) {
+            return cpus[indice];  // Retourner le CPU à l'indice demandé
+        } else {
+            return null;  // Si l'indice est hors limites, retourner null
+        }
     }
 
     /**
@@ -99,7 +125,7 @@ public class ServiceCPU {
      * @return la référence au contrôleur de l'application MVC "Processeur"
      */
     public Controller getRefCtrl() {
-        // VOTRE CODE ICI...
+        return refController;
     }
 
     /**
@@ -108,7 +134,7 @@ public class ServiceCPU {
      * @param refCtrl référence au contrôleur de l'application MVC "Processeur"
      */
     public void setRefCtrl(Controller refCtrl) {
-        // VOTRE CODE ICI...
+        this.refController = refController;
     }
 
 }
