@@ -22,13 +22,13 @@ public class ServiceCPU {
     /**
      * Attribut contenant le tableau des CPUs.
      */
-    CPU[] cpus = new CPU[NBRE_CPU];
+    private CPU[] cpus = new CPU[NBRE_CPU];
 
     /**
      * Attribut contenant la référence au contrôleur de l'application MVC
      * "Processeur".
      */
-    public Controller refController;
+    private Controller refController;
 
     /**
      * Constructeur de la classe ServiceCPU. Les attributs de la classe ServiceCPU
